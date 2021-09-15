@@ -10,9 +10,9 @@ pipeline {
     stage ('Build') {
       steps {
         //run the following Maven commands.
-        sh "export PATH=$PATH:/opt/maven/bin"
-        sh "source /etc/profile"
-        sh 'mvn -Dmaven.test.failure.ignore=true cleane package'
+        sh '''export PATH=$PATH:/opt/maven/bin
+        source /etc/profile
+        mvn -Dmaven.test.failure.ignore=true cleane package'''
       }
     }
   }
