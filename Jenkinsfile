@@ -12,7 +12,7 @@ pipeline {
         //run the following Maven commands.
         sh '''export PATH=$PATH:/opt/maven/bin
         source /etc/profile
-        mvn -Dmaven.test.failure.ignore=true cleane package'''
+        mvn -Dmaven.test.failure.ignore=true clean package'''
       }
     }
   }
