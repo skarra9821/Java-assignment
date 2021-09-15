@@ -4,7 +4,7 @@ pipeline {
     stage ('checkout source code') {
       steps {
         // get source code from git repository
-        https://github.com/skarra9821/Java-assignment.git
+        git branch: 'main', changelog: false, poll: false, url: 'https://github.com/skarra9821/Java-assignment.git'
           }
     }
     stage ('Build') {
