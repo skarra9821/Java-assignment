@@ -1,3 +1,4 @@
+def pom
 pipeline {
   agent any
   stages {
@@ -15,11 +16,9 @@ pipeline {
         script {
     // script {
     pom = readMavenPom file: 'pom.xml'
+    sh "echo $pom"
               }
             }
       }
     }
   }
-
-      
-        
