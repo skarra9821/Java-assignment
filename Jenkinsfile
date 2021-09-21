@@ -15,12 +15,11 @@ pipeline {
         script {
     // script {
     pom = readMavenPom file: 'pom.xml'
-}
-}
+              }
+            }
       }
     }
   }
-}
 
       
         
