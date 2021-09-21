@@ -11,7 +11,6 @@ pipeline {
       steps {
         //run the following Maven commands.
         sh '''export PATH=$PATH:/opt/maven/bin
-        source /etc/profile
         mvn -Dmaven.test.failure.ignore=true clean package'''
       }
     }
