@@ -16,7 +16,7 @@ pipeline {
         script {
     // script {
     pom = readMavenPom file: 'pom.xml'
-    sh "echo $pom"
+    sh "echo $pom.version"
               }
             }
       }
