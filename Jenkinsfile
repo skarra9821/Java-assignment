@@ -1,6 +1,11 @@
 def pom
+
 pipeline {
   agent any
+  environment {
+        VERSION = "$pom.version"
+        ARTIFACTID = "$pom.artifactID"
+    }
   stages {
     stage ('checkout source code') {
       steps {
@@ -8,7 +13,7 @@ pipeline {
         git branch: 'main', changelog: false, poll: false, url: 'https://github.com/skarra9821/Java-assignment.git'
           }
     }
-    stage ("Build-$pom.version-$pom.artifactId") {
+    stage ("Build-$VERSION-$ARTIFACTID") {
       steps {
         //run the following Maven commands.
         sh '''export PATH=$PATH:/opt/maven/bin
@@ -16,8 +21,8 @@ pipeline {
         script {
     // script {
     pom = readMavenPom file: 'pom.xml'
-    sh "echo $pom.version"
-    sh "echo $pom.artifactId"
+    sh "echo $VERSION"
+    sh "echo $ARTIFACTID"
               }
       }
       stage('Input') {
