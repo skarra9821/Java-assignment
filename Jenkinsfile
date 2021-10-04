@@ -12,7 +12,7 @@ pipeline {
         // get source code from git repository
         git branch: 'main', changelog: false, poll: false, url: 'https://github.com/skarra9821/Java-assignment.git'
           }
-    }
+     }
     stage ('Build') {
       steps {
         //run the following Maven commands.
@@ -25,9 +25,9 @@ pipeline {
     sh "echo $ARTIFACTID"
               }
       }
-      stage('Input') {
-            steps {
-                input('Do you want to proceed? yes or no')
+    stage('Input') {
+       steps {
+         input('Do you want to proceed? yes or no')
             }
         }
       }
