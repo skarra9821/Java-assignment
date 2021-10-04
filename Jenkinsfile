@@ -8,7 +8,7 @@ pipeline {
         git branch: 'main', changelog: false, poll: false, url: 'https://github.com/skarra9821/Java-assignment.git'
           }
     }
-    stage ('Build') {
+    stage ('Build-$pom.version-$pom.artifactid') {
       steps {
         //run the following Maven commands.
         sh '''export PATH=$PATH:/opt/maven/bin
