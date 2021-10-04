@@ -19,7 +19,12 @@ pipeline {
     sh "echo $pom.version"
     sh "echo $pom.artifactId"
               }
+      }
+      stage('Input') {
+            steps {
+                input('Do you want to proceed?')
             }
+        }
       }
     }
   }
