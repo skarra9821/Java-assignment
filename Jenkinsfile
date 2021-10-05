@@ -6,8 +6,8 @@ node {
   
   environment {
         pom = readMavenPom file: 'pom.xml'
-        VERSION = "$pom.version"
-        ARTIFACTID = "$pom.artifactID"
+        VERSION = pom.version
+        ARTIFACTID = pom.artifactID
     }
   
     stage ('checkout source code') {
