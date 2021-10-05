@@ -19,14 +19,13 @@ pipeline {
         sh '''export PATH=$PATH:/opt/maven/bin
         mvn -Dmaven.test.failure.ignore=true clean package'''
         script {
-    // script {
-    pom = readMavenPom file: 'pom.xml'
-    sh "echo $VERSION"
-    sh "echo $ARTIFACTID"
-            }
-         }
-	    }
-	  }
+            pom = readMavenPom file: 'pom.xml'
+            sh "echo $VERSION"
+            sh "echo $ARTIFACTID"
+        }
+    }
+
+  
     stage ('permission') {
        steps {
 	 //give input
@@ -34,4 +33,6 @@ pipeline {
             }
         }
       }
+
 }
+
