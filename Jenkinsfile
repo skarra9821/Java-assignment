@@ -29,7 +29,7 @@ pipeline {
 	  }
     stage ('Input') {
        steps {
-         input('Do you want to proceed? yes or no')
+         input 'Do you want to proceed'
             }
         }
       }
