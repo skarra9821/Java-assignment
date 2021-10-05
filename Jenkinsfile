@@ -27,7 +27,7 @@ pipeline {
          }
 	    }
 	  }
-    stage ('Input') {
+    stage ('permission') {
        steps {
 	 //give input
          input 'Do you want to proceed'
