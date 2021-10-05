@@ -21,8 +21,8 @@ node {
         mvn -Dmaven.test.failure.ignore=true clean package'''
         script {
             pom = readMavenPom file: 'pom.xml'
-            sh "echo $VERSION"
-            sh "echo $ARTIFACTID"
+            sh "echo $pom.version"
+            sh "echo $pom.artifactID"
         }
       
     }
