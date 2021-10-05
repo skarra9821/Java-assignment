@@ -3,7 +3,7 @@ def VERSION
 def ARTIFACTID
 
 node {
-  agent any
+  
   environment {
         pom = readMavenPom file: 'pom.xml'
         VERSION = "$pom.version"
