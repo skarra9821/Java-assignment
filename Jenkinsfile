@@ -24,13 +24,13 @@ pipeline {
     sh "echo $VERSION"
     sh "echo $ARTIFACTID"
             }
-        }
+         }
+	    }
 	  }
-    stage('Input') {
+    stage ('Input') {
        steps {
          input('Do you want to proceed? yes or no')
             }
         }
       }
     }
-  }
