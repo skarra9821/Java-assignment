@@ -13,6 +13,7 @@ pipeline {
         git branch: 'main', changelog: false, poll: false, url: 'https://github.com/skarra9821/Java-assignment.git'
         }
     }
+
     stage ('Build') {
       steps {
         //run the following Maven commands.
@@ -23,6 +24,7 @@ pipeline {
             sh "echo $VERSION"
             sh "echo $ARTIFACTID"
         }
+        }
     }
 
   
@@ -32,7 +34,5 @@ pipeline {
          input 'Do you want to proceed'
             }
         }
-      }
-
     }
 }
