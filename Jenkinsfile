@@ -4,8 +4,8 @@ pipeline {
   agent any
   environment {
         pom = readMavenPom file: 'pom.xml'
-        VERSION = pom.version
-        ARTIFACTID = pom.artifactID
+        VERSION = "pom.version"
+        ARTIFACTID = "pom.artifactID"
     }
   stages {
     stage ('checkout source code') {
