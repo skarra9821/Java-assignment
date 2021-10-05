@@ -3,18 +3,15 @@ def VERSION
 def ARTIFACTID
 
 node {
-  
-  environment {
-        pom = readMavenPom file: 'pom.xml'
-        VERSION = pom.version
-        ARTIFACTID = pom.artifactID
-    }
+    
   
     stage ('checkout source code') {
       
         // get source code from git repository
         git branch: 'main', changelog: false, poll: false, url: 'https://github.com/skarra9821/Java-assignment.git'
-       
+       pom = readMavenPom file: 'pom.xml'
+        VERSION = pom.version
+        ARTIFACTID = pom.artifactID
     }
 
     stage (" Build  ${VERSION}  ${ARTIFACTID}") {
