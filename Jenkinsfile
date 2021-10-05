@@ -17,7 +17,7 @@ pipeline {
         }
     }
 
-    stage ("Build-$VERSION-$ARTIFACTID") {
+	  stage ("Build-${VERSION}-${ARTIFACTID}") {
       steps {
         //run the following Maven commands.
         sh '''export PATH=$PATH:/opt/maven/bin
