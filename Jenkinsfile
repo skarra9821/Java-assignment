@@ -10,14 +10,14 @@ pipeline {
         ARTIFACTID = "$pom.artifactID"
     }
   stages {
-    stage ('checkout source code') {
+    stage('checkout source code') {
       steps {
         // get source code from git repository
         git branch: 'main', changelog: false, poll: false, url: 'https://github.com/skarra9821/Java-assignment.git'
         }
     }
 
-	  stage ("Build-${VERSION}-${ARTIFACTID}") {
+   stage(" Build  ${VERSION}  ${ARTIFACTID}") {
       steps {
         //run the following Maven commands.
         sh '''export PATH=$PATH:/opt/maven/bin
@@ -31,7 +31,7 @@ pipeline {
     }
 
   
-    stage ('permission') {
+    stage('permission') {
        steps {
 	 //give input
          input 'Do you want to proceed'
