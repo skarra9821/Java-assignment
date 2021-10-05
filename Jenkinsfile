@@ -3,8 +3,9 @@ def pom
 pipeline {
   agent any
   environment {
-        VERSION = "$pom.version"
-        ARTIFACTID = "$pom.artifactID"
+        pom = readMavenPom file: 'pom.xml'
+        VERSION = pom.version
+        ARTIFACTID = pom.artifactID
     }
   stages {
     stage ('checkout source code') {
@@ -14,7 +15,7 @@ pipeline {
         }
     }
 
-    stage ('Build') {
+    stage ("Build-$VERSION-$ARTIFACTID") {
       steps {
         //run the following Maven commands.
         sh '''export PATH=$PATH:/opt/maven/bin
