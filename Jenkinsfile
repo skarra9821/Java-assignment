@@ -23,8 +23,9 @@ pipeline {
     pom = readMavenPom file: 'pom.xml'
     sh "echo $VERSION"
     sh "echo $ARTIFACTID"
-              }
-      }
+            }
+        }
+	  }
     stage('Input') {
        steps {
          input('Do you want to proceed? yes or no')
