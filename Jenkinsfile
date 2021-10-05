@@ -11,7 +11,7 @@ node {
         git branch: 'main', changelog: false, poll: false, url: 'https://github.com/skarra9821/Java-assignment.git'
        pom = readMavenPom file: 'pom.xml'
         VERSION = pom.version
-        ARTIFACTID = pom.artifactID
+        ARTIFACTID = pom.artifactId
     }
 
     stage (" Build  ${VERSION}  ${ARTIFACTID}") {
@@ -22,7 +22,7 @@ node {
         script {
             pom = readMavenPom file: 'pom.xml'
             sh "echo $pom.version"
-            sh "echo $pom.artifactID"
+            sh "echo $pom.artifactId"
         }
       
     }
