@@ -2,7 +2,7 @@ def pom
 def VERSION
 def ARTIFACTID
 
-pipeline {
+node {
   agent any
   environment {
         pom = readMavenPom file: 'pom.xml'
@@ -10,15 +10,15 @@ pipeline {
         ARTIFACTID = "$pom.artifactID"
     }
   stages {
-    stage('checkout source code') {
-      steps {
+    stage ('checkout source code') {
+      
         // get source code from git repository
         git branch: 'main', changelog: false, poll: false, url: 'https://github.com/skarra9821/Java-assignment.git'
-        }
+       
     }
 
-   stage(" Build  ${VERSION}  ${ARTIFACTID}") {
-      steps {
+   stage (" Build  ${VERSION}  ${ARTIFACTID}") {
+     
         //run the following Maven commands.
         sh '''export PATH=$PATH:/opt/maven/bin
         mvn -Dmaven.test.failure.ignore=true clean package'''
@@ -27,15 +27,15 @@ pipeline {
             sh "echo $VERSION"
             sh "echo $ARTIFACTID"
         }
-        }
+      
     }
 
   
-    stage('permission') {
-       steps {
+    stage ('permission') {
+      
 	 //give input
          input 'Do you want to proceed'
             }
-        }
+       
     }
 }
