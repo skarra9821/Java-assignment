@@ -9,7 +9,7 @@ node {
         VERSION = "$pom.version"
         ARTIFACTID = "$pom.artifactID"
     }
-  stages {
+  
     stage ('checkout source code') {
       
         // get source code from git repository
@@ -17,7 +17,7 @@ node {
        
     }
 
-   stage (" Build  ${VERSION}  ${ARTIFACTID}") {
+    stage (" Build  ${VERSION}  ${ARTIFACTID}") {
      
         //run the following Maven commands.
         sh '''export PATH=$PATH:/opt/maven/bin
@@ -35,7 +35,6 @@ node {
       
 	 //give input
          input 'Do you want to proceed'
-            }
-       
     }
+ 
 }
