@@ -33,5 +33,11 @@ node {
 	 //give input
          input 'Do you want to proceed'
     }
+	
+	stage ('deployment')	{
+		
+     //adding war file to tomcat webapps folder
+	sh 'scp JenkinsAssignment.war newuser@34.227.151.161:/usr/share/tomcat/webapps'
+	}
  
 }
