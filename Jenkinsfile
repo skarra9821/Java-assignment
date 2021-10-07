@@ -36,7 +36,7 @@ node {
     stage ('deployment'){
       sshagent (['jenkins_cred']) {
      //adding war file to tomcat webapps folder
-	sh 'scp JenkinsAssignment.war newuser@34.227.151.161:/usr/share/tomcat/webapps'
+	sh 'scp JenkinsAssignment.war newuser@3.86.232.4:/usr/share/tomcat/webapps'
      }
     }
 }
