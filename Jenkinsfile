@@ -34,9 +34,9 @@ node {
          input 'Do you want to proceed'
     }	
     stage ('deployment'){
-      sshagent (['jenkins_cred']) {
+      sshagent (credentials: ['jenkins_cred']) {
      //adding war file to tomcat webapps folder
-	sh 'scp target/JenkinsAssignment.war newuser@3.86.232.4:/usr/share/tomcat/webapps'
+	sh 'scp -o StrictHostKeyChecking=no target/JenkinsAssignment.war newuser@3.86.232.4:/usr/share/tomcat/webapps'
      }
     }
 }
